@@ -18,6 +18,11 @@ class ProjectController extends Controller
             ->get();
     }
 
+    public function show(Project $project)
+    {
+        return $project;
+    }
+
     public function store(UpdateRequest $request)
     {
         $project = new Project();
