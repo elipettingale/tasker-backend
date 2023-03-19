@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Projects;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Project\UpdateRequest;
+use App\Http\Requests\Project\StoreRequest;
 use App\Models\Project;
 use Illuminate\Http\Request;
 
@@ -23,7 +23,7 @@ class ProjectController extends Controller
         return $project;
     }
 
-    public function store(UpdateRequest $request)
+    public function store(StoreRequest $request)
     {
         $project = new Project();
         $project->user()->associate(auth()->user());
@@ -33,7 +33,7 @@ class ProjectController extends Controller
         return $this->success($project);
     }
 
-    public function update(Project $project, UpdateRequest $request)
+    public function update(Project $project, Request $request)
     {
         $project->fill($request->all());
         $project->save();
