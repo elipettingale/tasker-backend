@@ -12,7 +12,7 @@ class Project extends Model
     protected $fillable = [
         'name',
         'lists',
-        'listTasks'
+        'tasks'
     ];
 
     public function user()
